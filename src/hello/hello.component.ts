@@ -10,14 +10,14 @@ export class HelloComponent implements OnInit {
     @Input('<') parentCtrl: any;
 
     constructor(
-      @Inject( '$log' )
-      private _$log: ng.ILogService,
-      private vid: string
+      @Inject( '$log' ) private $log: ng.ILogService,
     ) {}
   
+    private vid: string = 'default';
+
     ngOnInit() {
       const vm = this;
       vm.vid = vm.parentCtrl.configurationUtil.vid;
-      vm._$log.log(`Hello ${vm.vid}`)
+      vm.$log.log(`Hello ${vm.vid}`)
     }
 }

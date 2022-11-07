@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": true,
+    "target": "es5",
+    "lib": [
+      "es2021",
+      "dom"
+    ],
     "module": "es6",
     "moduleResolution": "node",
-    "target": "es5",
-    "allowJs": true,
-    "experimentalDecorators": true
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitHelpers": true,
+    "importHelpers": true
   },
   "include": [
     "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

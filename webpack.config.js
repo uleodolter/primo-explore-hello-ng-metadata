@@ -30,18 +30,22 @@ const METADATA = {
 };
 
 const config = {
-  entry: "./src/main.js",
+  entry: {
+    custom: "./src/main.ts",
+  },
   output: {
     path: path.join(DESTINATION, "js"),
-    filename: "custom.js",
+    filename: "[name].js",
+  },
+  resolve: {
+    extensions: [".ts", ".js", ".css", ".scss", ".html"],
   },
   module: {
     rules: [
       // Scripts
       {
         test: /\.ts$/,
-        loader: "ts-loader",
-        exclude: /node_modules/,
+        use: [{ loader: "ts-loader" }],
       },
       // Styles
       {
@@ -82,10 +86,6 @@ const config = {
       ENV: METADATA.ENV,
     }),
   ],
-  resolve: {
-    extensions: [".ts", ".js", ".css", ".scss", ".html"],
-  },
-  devtool: "source-map",
 };
 
 module.exports = config;
